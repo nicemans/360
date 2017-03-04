@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="jeep">
+  <meta name="Description" content="老司机，汽车，jeep">
+  <title>老司机网jeep汽车</title>
+  <style type="text/css">
+  *{margin:0px;padding:0px}
+  body{background:url("images/bg.jpg");
+	background-size: cover;}
+	#box{
+		width:960px;/*宽度*/
+		height:400px;/*高度*/
+		background:#ff0000;
+		margin:100px auto;
+		border:5px solid #ff0000;
+		position:relative;
+	}
+	#box .pic{
+		width:960px;/*宽度*/
+		height:400px;/*高度*/	
+		background:#0099ff;
+	}
+	#box .btn{width:95px;height:60px;position:absolute;bottom:35px;cursor:pointer;}
+	#box .prev{left:65px;}
+	#box .next{right:65px;}
+  </style>
+  </head>
+  <body>
+		<div id="box">
+			<div class="pic">
+				<img src="images/1.jpg"/>
+			</div>
+			<div class="prev btn"></div>
+			<div class="next btn"></div>
+		</div><!--构建盒子的宽高-->
+ </body>
+ <script type="text/javascript" src="js/jquery.js"></script>
+ <script type="text/javascript">
+ var i=0;
+ var time;
+ function Jeep1(){
+	i++;
+	if (i>35)i=1;
+	$("#box .pic img").attr("src","images/"+i+".jpg");
+ }
+ function Jeep2(){
+	i--;
+	if (i<1)i=35;
+	$("#box .pic img").attr("src","images/"+i+".jpg");}
+	$("#box .next").hover(function(){
+		time = setInterval(Jeep1 , 100);
+	},function(){
+			clearInterval(time)
+	});
+	$("#box .prev").hover(function(){
+		time = setInterval(Jeep2 , 100);
+	},function(){
+			clearInterval(time)
+	});
+
+ </script>
+ </html>
